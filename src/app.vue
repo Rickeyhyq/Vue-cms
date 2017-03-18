@@ -2,9 +2,13 @@
   <div>
     <!-- mint-ui header 组件 -->
     <mt-header fixed title="固定在顶部">
-      <mt-button slot="left" icon="back">返回</mt-button>
+      <router-link to="/" slot="left">
+        <mt-button icon="back">返回</mt-button>
+      </router-link>
       <mt-button slot="right" icon="more"></mt-button>
     </mt-header>
+
+    <router-view></router-view>
 
     <!-- mui tab-bar 组件 -->
     <nav class="mui-bar mui-bar-tab">
@@ -26,6 +30,4 @@
       </a>
     </nav>
   </div>
-
-
 </template>
