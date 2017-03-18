@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path')
+const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js', // 打包的总入口文件
@@ -13,5 +14,12 @@ module.exports = {
       test: /\.vue$/,
       loader: 'vue-loader'
     }]
-  }
+  },
+  plugins: [
+    new htmlWebpackPlugin({
+      title: 'index',
+      filename: 'index.html',
+      template: './dist/indextem.html'
+    })
+  ]
 }
