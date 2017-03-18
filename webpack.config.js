@@ -10,10 +10,21 @@ module.exports = {
   },
   module: {
     // 配置loader
-    loaders: [{
-      test: /\.vue$/,
-      loader: 'vue-loader'
-    }]
+    loaders: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      }
+    ]
   },
   plugins: [
     new htmlWebpackPlugin({
