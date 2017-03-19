@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="temp">
     <!-- 首页九宫格 -->
     <div class="mui-content">
       <ul class="mui-table-view mui-grid-view mui-grid-9">

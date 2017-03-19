@@ -20,18 +20,29 @@ Vue.component(Button.name, Button)
 // 引入mui相关文件
 import '../statics/mui/css/mui.min.css'
 
+// 引入自己的css文件
+import '../statics/css/base.css'
+
 // 使用路由
 Vue.use(VueRouter)
 
 // 引入组件
 import home from './components/home/home.vue'
+import member from './components/member/member.vue'
+import shopcart from './components/shopcart/shopcart.vue'
+import settings from './components/settings/settings.vue'
 
 // 创建并配置路由
 const vueRouter = new VueRouter({
   routes: [
     { name: '/', path: '/', redirect: 'home'},
-    { name: 'home', path: '/home', component: home}
-  ]
+    { name: 'home', path: '/home', component: home},
+    { name: 'member', path: '/member', component: member},
+    { name: 'shopcart', path: '/shopcart', component: shopcart},
+    { name: 'settings', path: '/settings', component: settings}
+  ],
+  // 设置当前激活路由的样式
+  linkActiveClass: 'mui-active'
 })
 
 // 2. 创建Vue对象
@@ -39,4 +50,4 @@ new Vue({
   el: '#app',
   router: vueRouter,
   render: c => c(App)  // 使用webpack渲染App.vue这个根组件(c是一个函数)
-}).$mount('#app')
+})
