@@ -3,16 +3,18 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import vueResource from 'vue-resource'
+import VueResource from 'vue-resource'
 
 // 引入mint-ui组件，全部加载
 // import Mint from 'mint-ui'
 // import 'mint-ui/lib/style.min.css'
 
 // mint-ui组件按需加载
-import { Header, Button } from 'mint-ui'
+import { Header, Button, Swipe, SwipeItem } from 'mint-ui'
 Vue.component(Header.name, Header)
 Vue.component(Button.name, Button)
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
 // Vue.use(Header)
 // Vue.use(Button)
 // Vue.use(Mint)
@@ -22,6 +24,10 @@ import '../statics/mui/css/mui.min.css'
 
 // 引入自己的css文件
 import '../statics/css/base.css'
+
+// 使用vue-resource
+Vue.use(VueResource)
+
 
 // 使用路由
 Vue.use(VueRouter)

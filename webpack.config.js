@@ -25,7 +25,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.ttf$/,
+        test: /\.(png|ttf)$/,
         loader: 'url-loader?limit=4000'
       }
     ]
