@@ -28,7 +28,7 @@ import '../statics/css/base.css'
 // 注册全局过滤器
 import moment from 'moment'
 Vue.filter('dateFormat', (input, formatString) => {
-  formatString = formatString || 'YY-MM-DD HH:mm:ss'
+  formatString = formatString || 'YYYY-MM-DD HH:mm:ss'
   return moment(input).format(formatString)
 })
 
@@ -44,6 +44,7 @@ import member from './components/member/member.vue'
 import shopcart from './components/shopcart/shopcart.vue'
 import settings from './components/settings/settings.vue'
 import newslist from './components/news/newslist.vue'
+import newsinfo from './components/news/newsinfo.vue'
 
 // 创建并配置路由
 const vueRouter = new VueRouter({
@@ -54,6 +55,7 @@ const vueRouter = new VueRouter({
     { name: 'shopcart', path: '/shopcart', component: shopcart},
     { name: 'settings', path: '/settings', component: settings},
     { name: 'newslist', path: '/news/list', component: newslist},
+    { name: 'newsinfo', path: '/news/info/:newsId', component: newsinfo}
   ],
   // 设置当前激活路由的样式
   linkActiveClass: 'mui-active'

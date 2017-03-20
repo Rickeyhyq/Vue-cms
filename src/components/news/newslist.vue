@@ -2,16 +2,16 @@
   <div class="temp">
     <ul class="mui-table-view">
 				<li class="mui-table-view-cell mui-media" v-for="item in newsList">
-					<a href="#">
+					<router-link :to="'/news/info/' + item.id" href="#">
 						<img class="mui-media-object mui-pull-left" :src="item.img_url">
 						<div class="mui-media-body">
-							{{ item.title }}
+							<div class="news-list-title" :title="item.title">{{ item.title }}</div>
 							<p class="mui-ellipsis">
-                发表时间 {{ item.add_time | dateFormat('YY-MM-DD') }}
+                发表时间 {{ item.add_time | dateFormat('YYYY-MM-DD') }}
                 <span>点击 {{ item.click }}</span>
               </p>
 						</div>
-					</a>
+					</router-link>
 				</li>
 			</ul>
   </div>
@@ -32,6 +32,14 @@
 
   .mui-ellipsis span {
     float: right;
+  }
+  
+  /* 设置文字超出一行的部分自动隐藏，以...代替 */  
+  .news-list-title {
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 显示省略符号来代表被修剪的文本 */
+    white-space: nowrap; /* 禁止换行 */
   }
 </style>
 
