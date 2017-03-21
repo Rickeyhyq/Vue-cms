@@ -10,14 +10,14 @@
 
     <!-- 使用评论子组件 -->
     <!-- 父组件传递值给子组件，子组件用prop接受 -->
-    <subcomment :commentId="this.$route.params.newId"></subcomment>
+    <subcomment :commentId="this.$route.params.newsId"></subcomment>
   </div>
 </template>
 
 <style scoped>
   .news-title {
     padding: 10px;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #b8b8b8;
   }
 
   /* 设置文字超出一行的部分自动隐藏，以...代替 */

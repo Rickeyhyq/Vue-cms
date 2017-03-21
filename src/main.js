@@ -10,11 +10,12 @@ import VueResource from 'vue-resource'
 // import 'mint-ui/lib/style.min.css'
 
 // mint-ui组件按需加载
-import { Header, Button, Swipe, SwipeItem } from 'mint-ui'
+import { Header, Button, Swipe, SwipeItem, Lazyload } from 'mint-ui'
 Vue.component(Header.name, Header)
 Vue.component(Button.name, Button)
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.use(Lazyload);
 // Vue.use(Header)
 // Vue.use(Button)
 // Vue.use(Mint)
@@ -46,6 +47,7 @@ import settings from './components/settings/settings.vue'
 import newslist from './components/news/newslist.vue'
 import newsinfo from './components/news/newsinfo.vue'
 import photolist from './components/photo/photolist.vue'
+import photoinfo from './components/photo/photoinfo.vue'
 
 // 创建并配置路由
 const vueRouter = new VueRouter({
@@ -57,7 +59,8 @@ const vueRouter = new VueRouter({
     { name: 'settings', path: '/settings', component: settings},
     { name: 'newslist', path: '/news/list', component: newslist},
     { name: 'newsinfo', path: '/news/info/:newsId', component: newsinfo},
-    { name: 'photolist', path: '/photolist', component: photolist}
+    { name: 'photolist', path: '/photo/list', component: photolist},
+    { name: 'photoinfo', path: '/photo/info/:photoId', component: photoinfo},
 
   ],
   // 设置当前激活路由的样式

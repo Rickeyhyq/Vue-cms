@@ -29,7 +29,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|ttf)$/,
+        test: /\.(png|ttf|svg|gif|jpg)$/,
         loader: 'url-loader?limit=4000'
       }
     ]
