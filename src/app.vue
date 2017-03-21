@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
   .mui-bar-tab {
     bottom: -1px;
     box-shadow: none;

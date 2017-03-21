@@ -7,10 +7,14 @@
     <div class="news-content">
       <p v-html="newsInfo.content"></p>
     </div>
+
+    <!-- 使用评论子组件 -->
+    <!-- 父组件传递值给子组件，子组件用prop接受 -->
+    <subcomment :commentId="this.$route.params.newId"></subcomment>
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
   .news-title {
     padding: 10px;
     border-bottom: 2px solid gray;
@@ -18,9 +22,9 @@
 
   /* 设置文字超出一行的部分自动隐藏，以...代替 */
   .news-title h4 {
-    width: 90%;
-    overflow: hidden;
-    text-overflow: ellipsis; /* 显示省略符号来代表被修剪的文本 */
+    width: 100%;
+    overflow-x: auto; /* 设置可以x轴滑动显示超出的部分 */
+    /*text-overflow: ellipsis;  显示省略符号来代表被修剪的文本 */
     white-space: nowrap; /* 禁止换行 */
   }
 
@@ -37,6 +41,10 @@
 
 <script>
   import common from '../../common/common.js'
+
+  // 导入评论子组件
+  import subcomment from '../subcomponent/subcomment.vue'
+
   export default {
     data () {
       return {
@@ -57,6 +65,9 @@
           this.newsInfo = res.body.message[0]
         })
       }
+    },
+    components: {
+      subcomment: subcomment
     }
   }
 </script>

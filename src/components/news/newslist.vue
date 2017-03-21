@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
   
   .mui-table-view-cell img {
     width: 50px;

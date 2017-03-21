@@ -45,6 +45,7 @@ import shopcart from './components/shopcart/shopcart.vue'
 import settings from './components/settings/settings.vue'
 import newslist from './components/news/newslist.vue'
 import newsinfo from './components/news/newsinfo.vue'
+import photolist from './components/photo/photolist.vue'
 
 // 创建并配置路由
 const vueRouter = new VueRouter({
@@ -55,7 +56,9 @@ const vueRouter = new VueRouter({
     { name: 'shopcart', path: '/shopcart', component: shopcart},
     { name: 'settings', path: '/settings', component: settings},
     { name: 'newslist', path: '/news/list', component: newslist},
-    { name: 'newsinfo', path: '/news/info/:newsId', component: newsinfo}
+    { name: 'newsinfo', path: '/news/info/:newsId', component: newsinfo},
+    { name: 'photolist', path: '/photolist', component: photolist}
+
   ],
   // 设置当前激活路由的样式
   linkActiveClass: 'mui-active'
