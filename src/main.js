@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 // 引入mint-ui组件，全部加载
 // import Mint from 'mint-ui'
