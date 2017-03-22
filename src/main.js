@@ -50,6 +50,10 @@ import newslist from './components/news/newslist.vue'
 import newsinfo from './components/news/newsinfo.vue'
 import photolist from './components/photo/photolist.vue'
 import photoinfo from './components/photo/photoinfo.vue'
+import goodslist from './components/goods/goodslist.vue'
+import goodsinfo from './components/goods/goodsinfo.vue'
+import goodscomment from './components/goods/goodscomment.vue'
+import goodsdesc from './components/goods/goodsdesc.vue'
 
 // 创建并配置路由
 const vueRouter = new VueRouter({
@@ -63,7 +67,10 @@ const vueRouter = new VueRouter({
     { name: 'newsinfo', path: '/news/info/:newsId', component: newsinfo},
     { name: 'photolist', path: '/photo/list', component: photolist},
     { name: 'photoinfo', path: '/photo/info/:photoId', component: photoinfo},
-
+    { name: 'goodslist', path: '/goods/list', component: goodslist},
+    { name: 'goodsinfo', path: '/goods/info/:goodsId', component: goodsinfo},
+    { name: 'goodscomment', path: '/goods/comments/:goodsId', component: goodscomment},
+    { name: 'goodsdesc', path: '/goods/desc/:goodsId', component: goodsdesc}
   ],
   // 设置当前激活路由的样式
   linkActiveClass: 'mui-active'
