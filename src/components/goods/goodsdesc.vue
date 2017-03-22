@@ -1,6 +1,6 @@
 <template>
   <div class="temp">
-    商品介绍页
+    <p>商品介绍页</p>
   </div>
 </template>
 
