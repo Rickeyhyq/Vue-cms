@@ -81,6 +81,7 @@
       } 
     },
     mounted () {
+      // 刷新页面时保持购物车徽标显示商品数量
       var badgeObj = document.getElementById('badge')
       var goodsCount = 0
       var goodsArray = getItem()
