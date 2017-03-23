@@ -33,6 +33,7 @@
       }
     },
     created () {
+      // 获取商品图文详情数据
       this.getGoodsDescData()
     },
     methods: {
