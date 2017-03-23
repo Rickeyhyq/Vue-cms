@@ -11,19 +11,20 @@
       <p>市场价:￥<del>{{ goodsInfo.market_price }}</del>&nbsp;&nbsp;&nbsp;&nbsp;销售价:￥<span>{{ goodsInfo.sell_price }}</span></p>
       
       <!-- 使用计数子组件 -->
-      <subcount></subcount>
+      <!-- 监听子组件$emit发射的事件 -->
+      <subcount @goodsCount="getGoodsCount" :stockCount="goodsInfo.stock_quantity"></subcount>
       
       <mt-button size="small" type="primary">立即购买</mt-button>
-      <mt-button size="small" type="danger">加入购物车</mt-button>
+      <mt-button size="small" type="danger" @click="addToCart">加入购物车</mt-button>
     </div>
 
     <!-- 商品参数信息 -->
     <div class="goods-params">
       <h4>商品参数</h4>
       <ul>
-        <li>商品货号:{{goodsInfo.goods_no}}</li>
-        <li>库存情况:剩余{{goodsInfo.stock_quantity}}件</li>
-        <li>上架时间:{{goodsInfo.add_time | dateFormat('YYYY-MM-DD HH:mm:ss')}}</li>
+        <li>商品货号:{{ goodsInfo.goods_no }}</li>
+        <li>库存情况:剩余{{ goodsInfo.stock_quantity }}件</li>
+        <li>上架时间:{{ goodsInfo.add_time | dateFormat('YYYY-MM-DD HH:mm:ss') }}</li>
       </ul>
       <mt-button @click="getGoodsDesc" class="goods-btn" size="large" plain type="primary">图文介绍</mt-button>
       <mt-button @click="getGoodsComment" class="goods-btn" size="large" plain type="danger">商品评论</mt-button>
@@ -90,12 +91,15 @@
   import subswipe from '../subcomponent/subswipe.vue'
   // 引入计数子组件
   import subcount from '../subcomponent/sub-count.vue'
+  // 引入公共的vue对象
+  import { bus } from '../../common/bus.js';
 
   export default {
     data () {
       return {
         goodsInfo: {},
-        swipeList: []
+        swipeList: [],
+        goodsCount: 1
       }
     },
     created () {
@@ -126,6 +130,16 @@
       },
       getGoodsDesc () {
         this.$router.push({path: '/goods/desc', query: { goodsId: this.$route.params.goodsId }})
+      },
+      // 获取子组件传递过来的值的函数
+      getGoodsCount (count) {
+        // 记录子组件传过来的值
+        this.goodsCount = count
+      },
+      // 添加到购物车
+      addToCart () {
+        // 将计数组件传过来的值传给App.vue组件
+        bus.$emit('shopCount', this.goodsCount)
       }
     },
     // 注册子组件

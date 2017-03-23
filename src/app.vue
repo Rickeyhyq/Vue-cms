@@ -18,7 +18,7 @@
         <span class="mui-tab-label">消息</span>
       </router-link>
       <router-link class="mui-tab-item" to="/shopcart">
-        <span class="mui-icon mui-icon-contact"><span class="mui-badge">0</span></span>
+        <span class="mui-icon mui-icon-contact"><span class="mui-badge" id="badge">0</span></span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
       <router-link class="mui-tab-item" to="/settings">
@@ -37,6 +37,21 @@
 </style>
 
 <script>
+  // 引入公共的vue对象
+  import { bus } from './common/bus.js';
+
+  // 注册事件的代码必须写在外面
+  bus.$on('shopCount', goodsCount => {
+    // 获取从 goodsinfo 传递过来的值
+    console.log(goodsCount)
+    var badgeObj = document.getElementById('badge')
+    var oldValue = badgeObj.innerHTML - 0
+    // 累加
+    oldValue += goodsCount;
+    // 重新赋值
+    badgeObj.innerHTML = oldValue
+  })
+
   export default {
     data () {
       return {
