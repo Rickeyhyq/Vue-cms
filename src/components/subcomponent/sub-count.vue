@@ -11,10 +11,10 @@
     margin-bottom: 15px;
     div {
       text-align: center;
-      margin-right: 8px;
+      margin-right: 6px;
       display: inline-block;
       width: 25px;
-      line-height: 24px;
+      line-height: 23px;
       border: 1px solid rgba(92, 92 ,92, 0.4);
     }
     .count {

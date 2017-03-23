@@ -40,16 +40,29 @@
   // 引入公共的vue对象
   import { bus } from './common/bus.js';
 
+  // 导入购物车管理模块
+  import { getItem } from './common/shopcartmanager.js'
+
   // 注册事件的代码必须写在外面
+  // 监听 goodsinfo 发射的shopCount事件c
   bus.$on('shopCount', goodsCount => {
     // 获取从 goodsinfo 传递过来的值
     console.log(goodsCount)
     var badgeObj = document.getElementById('badge')
-    var oldValue = badgeObj.innerHTML - 0
+    var count = badgeObj.innerHTML - 0
     // 累加
-    oldValue += goodsCount;
+    count += goodsCount;
     // 重新赋值
-    badgeObj.innerHTML = oldValue
+    badgeObj.innerHTML = count
+  })
+
+  // 监听 shopcart 发射的delete事件
+  bus.$on('delete', restCount => {
+    // 获取从 shopcart 传递过来的值
+    console.log(restCount)
+    var badgeObj = document.getElementById('badge')
+    // 重新赋值 restCount 为剩余的商品总数
+    badgeObj.innerHTML = restCount
   })
 
   export default {
@@ -65,7 +78,17 @@
         this.isShow = false
       } else {
         this.isShow = true
-      }
+      } 
+    },
+    mounted () {
+      var badgeObj = document.getElementById('badge')
+      var goodsCount = 0
+      var goodsArray = getItem()
+      console.log(badgeObj)
+      goodsArray.forEach(item => {
+        goodsCount += item.count
+      })
+      badgeObj.innerHTML = goodsCount
     },
     methods: {
       // 点击跳到上一条历史记录，返回上一页

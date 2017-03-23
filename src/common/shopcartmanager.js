@@ -2,7 +2,7 @@
 
 const key = 'goods'
 module.exports = {
-  saveToLocal (goodsObj) {
+  setItem (goodsObj) {
     // 1. 通过key，从localstoryage中将原来的数据读取出来
     let goodsList = JSON.parse(localStorage.getItem(key) || '[]')
 
@@ -28,5 +28,19 @@ module.exports = {
     }
     // 4. 以覆盖的形式写入localStorage
     localStorage.setItem(key, JSON.stringify(goodsList))
+  },
+  getItem () {
+    return JSON.parse(localStorage.getItem(key) || '[]')
+  },
+  removeItem (goodsId) {
+    const goodsArray = JSON.parse(localStorage.getItem(key) || '[]')
+    for (var i = 0; i<goodsArray.length; i++) {
+      if (goodsArray[i].goodsId == goodsId) {
+        goodsArray.splice(i,1)
+        break
+      }
+    }
+    // 将删除后的数据重新写入localStorage
+    localStorage.setItem(key, JSON.stringify(goodsArray));
   }
 }

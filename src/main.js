@@ -12,12 +12,14 @@ Vue.use(VuePreview)
 // import 'mint-ui/lib/style.min.css'
 
 // mint-ui组件按需加载
-import { Header, Button, Swipe, SwipeItem, Lazyload } from 'mint-ui'
+import { Header, Button, Swipe, SwipeItem, Lazyload, Switch } from 'mint-ui'
 Vue.component(Header.name, Header)
 Vue.component(Button.name, Button)
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.use(Lazyload);
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
+Vue.use(Lazyload)
+// Vue.use(Switch)
+Vue.component(Switch.name, Switch)
 // Vue.use(Header)
 // Vue.use(Button)
 // Vue.use(Mint)

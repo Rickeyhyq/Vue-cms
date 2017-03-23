@@ -92,9 +92,9 @@
   // 引入计数子组件
   import subcount from '../subcomponent/sub-count.vue'
   // 引入公共的vue对象
-  import { bus } from '../../common/bus.js';
+  import { bus } from '../../common/bus.js'
   // 引入购物车管理模块
-  import { saveToLocal } from '../../common/shopcartmanager.js'
+  import { setItem } from '../../common/shopcartmanager.js'
 
   export default {
     data () {
@@ -144,7 +144,7 @@
         bus.$emit('shopCount', this.goodsCount)
         const goodsObj = {goodsId: this.$route.params.goodsId, count: this.goodsCount}
         // 将商品的id及数量存在localStorage中方便购物车模块使用
-        saveToLocal(goodsObj)
+        setItem(goodsObj)
       }
     },
     // 注册子组件
