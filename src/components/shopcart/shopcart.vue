@@ -70,6 +70,8 @@
         margin-top: 18px;
         font-size: 14px;
         span {
+          display: inline-block;
+          width: 60px;
           font-size: 16px; 
           color: red;
           margin-right: 10px;
