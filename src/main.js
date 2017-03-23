@@ -70,7 +70,7 @@ const vueRouter = new VueRouter({
     { name: 'goodslist', path: '/goods/list', component: goodslist},
     { name: 'goodsinfo', path: '/goods/info/:goodsId', component: goodsinfo},
     { name: 'goodscomment', path: '/goods/comments/:goodsId', component: goodscomment},
-    { name: 'goodsdesc', path: '/goods/desc/:goodsId', component: goodsdesc}
+    { name: 'goodsdesc', path: '/goods/desc', component: goodsdesc}
   ],
   // 设置当前激活路由的样式
   linkActiveClass: 'mui-active'

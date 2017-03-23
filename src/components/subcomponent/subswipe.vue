@@ -20,8 +20,6 @@
 </style>
 
 <script>
-  import common from '../../common/common.js'
-
   export default {
     // 父组件传过来的值
     props: ['imageList']

@@ -9,6 +9,10 @@
     <div class="goods-purchase">
       <h4>{{ goodsInfo.title }}</h4>
       <p>市场价:￥<del>{{ goodsInfo.market_price }}</del>&nbsp;&nbsp;&nbsp;&nbsp;销售价:￥<span>{{ goodsInfo.sell_price }}</span></p>
+      
+      <!-- 使用计数子组件 -->
+      <subcount></subcount>
+      
       <mt-button size="small" type="primary">立即购买</mt-button>
       <mt-button size="small" type="danger">加入购物车</mt-button>
     </div>
@@ -21,7 +25,7 @@
         <li>库存情况:剩余{{goodsInfo.stock_quantity}}件</li>
         <li>上架时间:{{goodsInfo.add_time | dateFormat('YYYY-MM-DD HH:mm:ss')}}</li>
       </ul>
-      <mt-button class="goods-btn" size="large" plain type="primary">图文介绍</mt-button>
+      <mt-button @click="getGoodsDesc" class="goods-btn" size="large" plain type="primary">图文介绍</mt-button>
       <mt-button @click="getGoodsComment" class="goods-btn" size="large" plain type="danger">商品评论</mt-button>
     </div>
   </div>
@@ -84,6 +88,8 @@
   import common from '../../common/common.js'
   // 引入轮播图子组件
   import subswipe from '../subcomponent/subswipe.vue'
+  // 引入计数子组件
+  import subcount from '../subcomponent/sub-count.vue'
 
   export default {
     data () {
@@ -117,11 +123,15 @@
       },
       getGoodsComment () {
         this.$router.push({name: 'goodscomment', params: {goodsId: this.$route.params.goodsId}})
+      },
+      getGoodsDesc () {
+        this.$router.push({path: '/goods/desc', query: { goodsId: this.$route.params.goodsId }})
       }
     },
     // 注册子组件
     components: {
-      subswipe: subswipe
+      subswipe: subswipe,
+      subcount: subcount
     }
   }
 </script>
